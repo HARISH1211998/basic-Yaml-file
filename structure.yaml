@@ -1,0 +1,7 @@
+apiVersion: # string 
+kind: # string
+metadata:
+  # Dictionary properties go here
+
+spec:
+  # List properties go here
