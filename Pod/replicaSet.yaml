@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-rs
+  labels:
+    app: myapp
+spec:
+  replicas: 3  # Corrected from Replica to replicas
+  selector:
+    matchLabels:  # Corrected from matchLabes to matchLabels
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
