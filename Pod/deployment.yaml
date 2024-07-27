@@ -1,19 +1,39 @@
-apiVersion: apps/v1
+apiversion: app/v1
 kind: Deployment
 metadata:
-  name: my-deploy
+  name: my-backend-app
   labels:
-    app: myapp
+    app: three-tier
 spec:
-  replicas: 3  # Corrected from Replica to replicas
+  replica: 3
   selector:
-    matchLabels:  # Corrected from matchLabes to matchLabels
-      app: myapp
+    matchlabels:
+      labels:
+        app: three-tier
   template:
     metadata:
       labels:
-        app: myapp
+        app: three-tier
     spec:
-      containers:
-      - name: nginx
-        image: nginx:latest
+      container:
+        - name: my-nginx
+          image:
+          ports:
+            containerPort: 80
+-----------------
+
+apiVersion: app/v1
+kind: Service
+metadata:
+  name: three-tier-service
+  labels:
+    app: three-tier
+spec:
+  selector:
+    app: three-tier
+  ports:
+    - name: http
+      port: 80
+      containerPort: 80
+      targetPort: 32456
+  
