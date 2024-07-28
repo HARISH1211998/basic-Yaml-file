@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: configMap
+metadata: 
+  name: mysql-data-storage
+data:
+  mysql_usermane.sql: |-
+    DROP DATABASE IF EXISTS usermgm;
+    CREATE DATABASE usermgm;

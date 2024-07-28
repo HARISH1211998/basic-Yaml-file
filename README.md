@@ -40,6 +40,15 @@ kubernetes service:
     4. ingress
     5. external name
 
+PV and PVC
+If your deleting the pod volume can't be deleted
+kubectl get pods -w # w for watch mode
+
+probes type:
+liveness -> kubelet will check the pod alive state, liveness props could catch the deadlock
+readness -> kubelet will see the container is ready to accept the traffics
+startup -> it will be disable the liveness and readness probes, it will major use for slow startup container to avoid to restart the container again and again
+
 
 update replicaset
 kubectl scale --replica=30 deployment/<deploymentname>

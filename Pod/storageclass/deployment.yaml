@@ -1,0 +1,22 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: mysql-app
+  labels:
+    app: mysql-app
+spec:
+  replica: 1
+  selector:
+    matchLabels:
+      app: mysql-app
+  template:
+    metadata:
+      app: mysql-app
+  spec:
+    env:
+      name: my-sql-password
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: my-password
+    
