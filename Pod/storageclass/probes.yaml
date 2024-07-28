@@ -51,3 +51,11 @@ spec:
               port: 8095
             initialDelaySeconds: 60
             periodSeconds: 10 
+          resources:
+            request:
+              cpu: "128Mib"
+              memory: "500m"
+            limit:
+              cpu: "256Mib"
+              memory: "1000m"
+        
