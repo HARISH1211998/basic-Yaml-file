@@ -1,0 +1,7 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+provisioner: ebs.csi.aws.com
+# mode will delays the volume binding and provisioning of a persistentVolume until a pod using the persistentVolume Claim is created
+volumeBindingMode: waitForFirstConsumer #it will wait for first pv and pvc to consume

@@ -1,49 +1,51 @@
-Kubernetes Basic Yaml File
-Provide a clear and concise title that reflects the purpose of your project.
+Revision Process 
+we can easliy rollback all the template
 
-Overview
-Briefly describe the purpose and goals of your project. Explain why it exists and what problem it solves.
+Order By -> config Map, secret, Deployment, Service
 
-Features
-List key features or functionalities of your project. Highlight what makes it unique or valuable.
+NodePort Range -> 30000 into 32767
 
-Getting Started
-Guide users on how to set up and run your project locally. Include installation instructions, dependencies, and any configuration steps.
+Port -> Service Port
+Target Port -> Container Port
+NodePort -> Worker Node
 
-Prerequisites
-List any software, libraries, or tools that users need to have installed before using your project.
+kubectl expose pod <pod name> --type=NodePort --port=80 --name=my-first-service
 
-Installation
-Provide step-by-step instructions on how to install and configure your project.
+kubectl get pod -o wide
 
-Usage
-Explain how to use your project. Include code examples, screenshots, or any relevant information to help users understand its functionality.
+Logs:
+   1. kubectl logs -l name=mylabels --all-containers
+   2. kubectl logs my-pods --previous
+   3. kubectl logs my-pods -c my-container
 
-Examples
-Showcase examples or use cases of your project in action. This can help users visualize how it works.
+To check the env:
+kubectl exec -it my-first-pod env
 
-Configuration
-Detail any configuration options or settings available in your project. Explain how users can customize the behavior to suit their needs.
+yaml output:
+kubectl get pods <pod name> -o yaml
 
-Contributing
-If you welcome contributions from the community, provide guidelines on how users can contribute to your project. Include information on the development environment, coding standards, and the process for submitting pull requests.
+Deployment:
+kubectl set image deployment/<daployment name> imagename=imageversion --record=true
+kubectl rollout status deployment/mydeploymentname
+kubectl rollout history deployment/deployment name --revision=1
 
-License
-Specify the license under which your project is distributed. This informs users about how they can use, modify, and distribute your code.
+Pasues and Resume:
+kubectl rollout pause deployment/deployment-name
+kubectl rollout resume deployment/deploymentname
 
-Acknowledgements
-Give credit to individuals, libraries, or tools that have contributed to or inspired your project.
+kubernetes service:
+    1. ClusterIP
+    2. nodeport
+    3. load balancer
+    4. ingress
+    5. external name
 
-Contact
-Provide contact information or links to relevant channels where users can reach out for support, questions, or feedback.
 
-Roadmap
-Outline future plans, features, or improvements you intend to make to your project.
+update replicaset
+kubectl scale --replica=30 deployment/<deploymentname>
 
-Changelog
-Keep a record of changes made to your project, including version updates and release notes.
+OSI layer 7 -> alb
+OSI layer 4 -> nlb
+OSI layer 7 and 4 -> clb
 
-Frequently Asked Questions (FAQ)
-Anticipate common questions users might have and provide answers to them.
 
-By crafting a comprehensive README file, you enhance the usability and accessibility of your GitHub repository for both users and potential contributors.
