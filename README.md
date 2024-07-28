@@ -115,7 +115,7 @@ defaultRequest: min
 
 ResourceQuote
 if we set something in resourcequote we can able to run into, for example pod =5 you can't run more than 5 pods in that namespace
-
+kubectl get quota -n <namespace>
 
 Namespace -> isolated boundary for our kubernetes cluster
 we use request and limit as per resource quote allocation in kubernetes.
