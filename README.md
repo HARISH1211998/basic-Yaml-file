@@ -120,6 +120,9 @@ kubectl get quota -n <namespace>
 Namespace -> isolated boundary for our kubernetes cluster
 we use request and limit as per resource quote allocation in kubernetes.
 
+Ingress class -> Ingress class is an group of default: true
+Ingress resource -> Ingress resource is an single component
+
 update replicaset
 kubectl scale --replica=30 deployment/<deploymentname>
 
