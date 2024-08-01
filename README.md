@@ -124,7 +124,9 @@ Ingress class -> Ingress class is an group of default: true
 Ingress resource -> Ingress resource is an single component
 
 Ingress key items:
-ingress manifest -> 1. annotation, 2. ingress spec (ingress class name), 3. ingress rule or contact based routing 
+ingress manifest -> 1. annotation, 2. ingress spec (ingress class name), 3. ingress rule or contact based routing
+
+Ingress group -> It is contain ingress resource.
 
 update replicaset
 kubectl scale --replica=30 deployment/<deploymentname>
