@@ -34,13 +34,3 @@ elif [ another_condition ]; then
 else
     # commands if none of the conditions are true
 fi
-
-
-# URL to check
-url="https://example.com"
-
-# Get HTTP status code
-status_code=$(curl -o /dev/null -s -w "%{http_code}" "https://hubz.io/")
-
-# Output the status code
-echo "HTTP Status Code for $url: $status_code"

@@ -5,6 +5,7 @@ def get_recent_amis(days=30):
     ec2 = boto3.client('ec2')
     end_date = datetime.utcnow()
     start_date = end_date - timedelta(days=days)
+    print(start_date)
     
     amis = ec2.describe_images(Owners=['self'])
     recent_amis = []
