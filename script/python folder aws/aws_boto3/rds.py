@@ -42,6 +42,6 @@ print(f"modification of the RDS Database has been done {db_cluster_id}")
 # RDS Delete for aurora
 response = rds.delete_db_cluster(
     DBClusterIdentifier=db_cluster_id,
-    SkipFinalSnapshot = true
+    SkipFinalSnapshot = True
 )
 print(f"the {db_cluster_id} is being deleted")
