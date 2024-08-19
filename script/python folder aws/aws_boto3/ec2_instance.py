@@ -19,7 +19,7 @@ for instance in ec2_get_all:
 
 print(f"Instance IDs: {instance_ids}")
 
-# Create a new instance if none exists
+# Create a new instance if none exist
 if not instance_exists:
     ec2_key = ec2.create_instances(
         ImageId='ami-0a72af05d27b49ccb',
