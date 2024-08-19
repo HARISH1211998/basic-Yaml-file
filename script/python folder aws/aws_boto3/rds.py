@@ -27,3 +27,21 @@ except rds.exceptions.DBClusterNotFoundFault:
             break
         print("Waiting for the DB cluster to become available...")
         time.sleep(30)  # Adding a sleep to avoid making too many requests
+
+# RDS Modification Result
+response = rds.modify_db_cluster(
+        Engine='aurora-mysql',
+        EngineVersion='5.7.mysql_aurora.2.08.3',
+        DBClusterIdentifier=db_cluster_id,
+        Username = username,
+        Password = password
+)
+
+print(f"modification of the RDS Database has been done {db_cluster_id}")
+
+# RDS Delete for aurora
+response = rds.delete_db_cluster(
+    DBClusterIdentifier=db_cluster_id,
+    SkipFinalSnapshot = true
+)
+print(f"the {db_cluster_id} is being deleted")
