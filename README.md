@@ -1,8 +1,3 @@
-Kubernetes Commands Cheat Sheet Pod
-Get Logs for a Pod:
-
-**kubectl logs <pod-name>**
-
 Describe a Pod:
 **kubectl describe pod <pod-name>**
 
@@ -104,7 +99,7 @@ liveness -> kubelet will check the pod alive state, liveness props could catch t
 readness -> kubelet will see the container is ready to accept the traffics
 startup -> it will be disable the liveness and readness probes, it will major use for slow startup container to avoid to restart the container again and again
 
-Request and Limit:
+Request and Limit: implementment in pod level
 Request -> minimum cpu and memory (500m, 128Mi)
 limit -> maximum cpu and memory (1000m, 256mi)
 
@@ -134,5 +129,3 @@ kubectl scale --replica=30 deployment/<deploymentname>
 OSI layer 7 -> alb
 OSI layer 4 -> nlb
 OSI layer 7 and 4 -> clb
-
-
