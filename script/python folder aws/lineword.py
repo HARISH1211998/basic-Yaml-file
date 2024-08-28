@@ -21,7 +21,6 @@ for word, count in word_count.items():
 
 
 ### Added number repeated
-
 number = [1,1,12,2,3,4,44,45,44,2,2]
 
 counter_number = Counter(number)
